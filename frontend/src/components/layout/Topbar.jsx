@@ -1,12 +1,14 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Search, RefreshCw, Bell, ShieldAlert, Cpu } from 'lucide-react';
+import { Search, RefreshCw, Bell, ShieldAlert, Cpu, Sun, Moon } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { NAV_ITEMS } from '../../utils/constants';
 
 export default function Topbar() {
   const location = useLocation();
   const {
+    theme,
+    toggleTheme,
     isDemoMode,
     toggleMode,
     refreshData,
@@ -46,6 +48,17 @@ export default function Topbar() {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
+
+        {/* Dark / Light Mode Switcher */}
+        <button
+          className="theme-toggle-btn"
+          onClick={toggleTheme}
+          title={`Switch to ${theme === 'dark' ? 'Light / White' : 'Dark'} Mode`}
+          aria-label="Toggle theme"
+        >
+          {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
+          <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+        </button>
 
         {/* Demo / API Mode Switcher */}
         <button

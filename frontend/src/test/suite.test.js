@@ -69,3 +69,13 @@ test('Help Desk documentation data structures are comprehensive', async () => {
   assert.equal(USE_CASES.length, 6);
   assert.equal(USER_PERSONAS.length, 6);
 });
+
+test('Dark and White theme stylesheet definition contains data-theme light tokens', async () => {
+  const fs = await import('node:fs');
+  const path = await import('node:path');
+  const css = fs.readFileSync(path.resolve('src/styles/variables.css'), 'utf-8');
+  assert.ok(css.includes(':root'), 'Should define default dark theme on :root');
+  assert.ok(css.includes("[data-theme='light']"), "Should define light theme under [data-theme='light']");
+  assert.ok(css.includes('--bg-main'), 'Should have --bg-main token');
+  assert.ok(css.includes('--text-primary'), 'Should have --text-primary token');
+});

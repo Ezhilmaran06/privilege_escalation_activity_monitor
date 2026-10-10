@@ -7,6 +7,9 @@ import { MOCK_SUMMARY, MOCK_ALERTS, MOCK_USER_RISKS } from '../utils/mockData';
 const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('privilege_guard_theme') || 'dark';
+  });
   const [isDemoMode, setIsDemoMode] = useState(false);
   const [datasetName, setDatasetName] = useState('PrivilegeGuard Synthetic Baseline');
   const [summary, setSummary] = useState(MOCK_SUMMARY);
@@ -18,6 +21,18 @@ export function AppProvider({ children }) {
   const [selectedUser, setSelectedUser] = useState(null);
   const [toasts, setToasts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('privilege_guard_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prevTheme) => {
+      const nextTheme = prevTheme === 'dark' ? 'light' : 'dark';
+      return nextTheme;
+    });
+  }, []);
 
   const showToast = useCallback((message, type = 'info') => {
     const id = Date.now();
@@ -136,6 +151,8 @@ export function AppProvider({ children }) {
   };
 
   const value = {
+    theme,
+    toggleTheme,
     isDemoMode,
     datasetName,
     setDatasetName,

@@ -1,7 +1,7 @@
 /* Help Desk & User Guide Styles */
 
 .help-hero {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(17, 24, 39, 0.9) 100%);
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 32px 28px;
@@ -128,7 +128,7 @@
 }
 
 .accordion-header:hover {
-  background: rgba(30, 41, 59, 0.3);
+  background: var(--bg-elevated);
 }
 
 .accordion-title {
