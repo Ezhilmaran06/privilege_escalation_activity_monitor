@@ -1,0 +1,28 @@
+# Root Gitignore
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+.env
+.env.local
+*.log
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.venv/
+**/.venv/
+.pytest_cache/
+**/.pytest_cache/
+*.db
+*.sqlite3
+**/data/*.db
+**/data/*.sqlite3
+**/data/uploads/
+
+# OS
+.DS_Store
+Thumbs.db

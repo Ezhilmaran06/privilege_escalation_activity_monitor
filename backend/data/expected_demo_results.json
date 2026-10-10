@@ -1,0 +1,66 @@
+{
+  "dataset_name": "PrivilegeGuard Synthetic Enterprise Audit Baseline",
+  "total_events": 125,
+  "synthetic": true,
+  "expected_triggered_rules": [
+    {
+      "rule_id": "RULE-001",
+      "name": "Privilege Elevation",
+      "actor": "charlie_dev",
+      "expected_severity": "High"
+    },
+    {
+      "rule_id": "RULE-002",
+      "name": "Administrator Account Creation",
+      "actor": "attacker_svc",
+      "expected_severity": "Critical"
+    },
+    {
+      "rule_id": "RULE-003",
+      "name": "Privileged Group Membership Addition",
+      "actor": "operator_jim",
+      "expected_severity": "High"
+    },
+    {
+      "rule_id": "RULE-004",
+      "name": "Suspicious Permission Modification",
+      "actor": "eve_analyst",
+      "expected_severity": "High"
+    },
+    {
+      "rule_id": "RULE-005",
+      "name": "After-Hours Administrative Activity",
+      "actor": "frank_backup",
+      "expected_severity": "Medium"
+    },
+    {
+      "rule_id": "RULE-006",
+      "name": "Repeated Failed Administrative Access",
+      "actor": "mallory_bot",
+      "expected_severity": "Medium"
+    },
+    {
+      "rule_id": "RULE-007",
+      "name": "Multiple Privilege-Related Events in Burst",
+      "actor": "kevin_devops",
+      "expected_severity": "Medium"
+    },
+    {
+      "rule_id": "RULE-008",
+      "name": "Suspicious Multi-Stage Sequence Correlation",
+      "actor": "infiltrator_x",
+      "expected_severity": "Critical"
+    },
+    {
+      "rule_id": "RULE-009",
+      "name": "Unfamiliar IP Address During Privilege Change",
+      "actor": "zoe_admin",
+      "expected_severity": "Medium"
+    }
+  ],
+  "key_scenarios_explained": {
+    "account_takeover_sequence": "infiltrator_x failed authentication twice, logged in, and promoted account to superadmin in 9 minutes (RULE-008).",
+    "backdoor_creation": "attacker_svc provisioned backdoor_admin directly with administrator rights (RULE-002).",
+    "unauthorized_group_grant": "operator_jim granted Domain Admins membership to david_contractor (RULE-003)."
+  }
+}
