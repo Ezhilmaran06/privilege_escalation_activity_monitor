@@ -8,6 +8,7 @@ import {
   Clock,
   Users,
   FileText,
+  BookOpen,
   Info,
   Database
 } from 'lucide-react';
@@ -21,6 +22,7 @@ const ICONS = {
   Clock,
   Users,
   FileText,
+  BookOpen,
   Info
 };
 

@@ -13,7 +13,7 @@ test('Risk scoring classification tiers match requirements', () => {
 });
 
 test('Navigation routes are fully defined', () => {
-  assert.equal(NAV_ITEMS.length, 7);
+  assert.equal(NAV_ITEMS.length, 8);
   const paths = NAV_ITEMS.map((n) => n.path);
   assert.ok(paths.includes('/'));
   assert.ok(paths.includes('/upload'));
@@ -21,6 +21,7 @@ test('Navigation routes are fully defined', () => {
   assert.ok(paths.includes('/timeline'));
   assert.ok(paths.includes('/users'));
   assert.ok(paths.includes('/reports'));
+  assert.ok(paths.includes('/help'));
   assert.ok(paths.includes('/about'));
 });
 
@@ -55,4 +56,16 @@ test('User risk analysis data is well-formed', () => {
   assert.equal(topUser.actor, 'infiltrator_x');
   assert.equal(topUser.highest_risk_score, 95);
   assert.equal(topUser.highest_severity, 'Critical');
+});
+
+test('Help Desk documentation data structures are comprehensive', async () => {
+  const { DETECTION_RULES_REFERENCE, COMMON_SCENARIOS, TROUBLESHOOTING_ITEMS, FAQS, GLOSSARY_TERMS, WORKFLOW_STEPS, USE_CASES, USER_PERSONAS } = await import('../data/helpContent.js');
+  assert.equal(DETECTION_RULES_REFERENCE.length, 9);
+  assert.equal(COMMON_SCENARIOS.length, 6);
+  assert.equal(TROUBLESHOOTING_ITEMS.length, 11);
+  assert.equal(FAQS.length, 16);
+  assert.equal(GLOSSARY_TERMS.length, 20);
+  assert.equal(WORKFLOW_STEPS.length, 8);
+  assert.equal(USE_CASES.length, 6);
+  assert.equal(USER_PERSONAS.length, 6);
 });

@@ -23,5 +23,6 @@ export const NAV_ITEMS = [
   { path: '/timeline', label: 'Activity Timeline', icon: 'Clock' },
   { path: '/users', label: 'User Risk Analysis', icon: 'Users' },
   { path: '/reports', label: 'Reports & Export', icon: 'FileText' },
+  { path: '/help', label: 'Help Desk & User Guide', icon: 'BookOpen' },
   { path: '/about', label: 'About the System', icon: 'Info' }
 ];

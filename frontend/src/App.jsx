@@ -9,6 +9,7 @@ import ThreatDetections from './pages/ThreatDetections';
 import ActivityTimelinePage from './pages/ActivityTimelinePage';
 import UserRiskAnalysis from './pages/UserRiskAnalysis';
 import Reports from './pages/Reports';
+import HelpDesk from './pages/HelpDesk';
 import About from './pages/About';
 
 import './styles/global.css';
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="timeline" element={<ActivityTimelinePage />} />
             <Route path="users" element={<UserRiskAnalysis />} />
             <Route path="reports" element={<Reports />} />
+            <Route path="help" element={<HelpDesk />} />
             <Route path="about" element={<About />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
